@@ -20,17 +20,33 @@ import argparse
 import logging
 import os
 import sys
-# import json
+import json
+import time
 
 import paho.mqtt.client as mqtt
 import yaml
 
-# import datetime
-# import time
+from hydrant.backends import elastic as es
 
 
 LOGGER = logging.getLogger('hydrant')
 LOGGER.setLevel(logging.DEBUG)
+
+
+class Hydrant:
+    def __init__(self, backend):
+        self.backend = backend
+
+    def timestamp(self, json_msg):
+        if "TIMESTAMP" not in json_msg:
+            json_msg["TIMESTAMP"] = int(time.time())
+
+    def consume(self, msg, topic):
+        json_msg = json.loads(msg)
+        self.timestamp(json_msg)
+        # clean up gerrit topics, keep simply "gerrit"
+        t = topic.split('/')[0]
+        self.backend.add(json_msg, t)
 
 
 def on_connect(client, userdata, flags, rc):
@@ -38,9 +54,12 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("#")
 
 
-# The callback for when a PUBLISH message is received from the server.
-def on_message(client, userdata, msg):
-    LOGGER.debug(msg.topic+": "+str(msg.payload))
+def on_message(handler):
+    # The callback for when a PUBLISH message is received from the server.
+    def _on_message(client, userdata, msg):
+        LOGGER.debug(msg.topic+": "+str(msg.payload))
+        handler.consume(msg.payload, msg.topic)
+    return _on_message
 
 
 def main():
@@ -73,14 +92,18 @@ def main():
         sys.exit('Elasticsearch configuration missing in %s' %
                  args.config_file)
 
+    ESBackend = es.ElasticsearchBackend(conf['elasticsearch']['host'],
+                                        conf['elasticsearch']['port'])
+    handler = Hydrant(ESBackend)
+
     LOGGER.debug(
-        'Creating MQTT listener on %s:%s' % (conf['mqtt']['host'],
-                                             conf['mqtt']['port']))
+        'Creating MQTT listener for %s:%s' % (conf['mqtt']['host'],
+                                              conf['mqtt']['port']))
     client = mqtt.Client()
     client.on_connect = on_connect
-    client.on_message = on_message
+    client.on_message = on_message(handler)
 
-    client.connect("iot.eclipse.org", 1883, 60)
+    client.connect(conf['mqtt']['host'], conf['mqtt']['port'], 60)
     try:
         client.loop_forever()
     except KeyboardInterrupt:

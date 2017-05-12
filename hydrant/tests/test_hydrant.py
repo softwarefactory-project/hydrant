@@ -15,6 +15,43 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# from unittest import TestCase
+from unittest import TestCase
 
-# from mock import patch, Mock
+from hydrant import hydrant
+
+from mock import patch
+
+
+class EchoBackend:
+    def __init__(self):
+        self.msg = None
+        self.topic = None
+
+    def add(self, msg, topic):
+        self.msg = msg
+        self.topic = topic
+        return msg, topic
+
+
+class TestHydrant(TestCase):
+    def test_handler(self):
+        bkd = EchoBackend()
+        handler = hydrant.Hydrant(bkd)
+        self.assertTrue(handler.backend == bkd)
+        with patch("time.time") as t:
+            t.return_value = 123456
+            message = '{"a": "b"}'
+            topic = 'testytest'
+            handler.consume(message, topic)
+            self.assertEqual({"a": "b", "TIMESTAMP": 123456}, bkd.msg)
+            self.assertEqual(topic, bkd.topic)
+            message = '{"a": "b", "TIMESTAMP": 23}'
+            topic = 'testytest'
+            handler.consume(message, topic)
+            self.assertEqual({"a": "b", "TIMESTAMP": 23}, bkd.msg)
+            self.assertEqual(topic, bkd.topic)
+            message = '{"a": "b"}'
+            topic = 'testytest/bleh'
+            handler.consume(message, topic)
+            self.assertEqual({"a": "b", "TIMESTAMP": 123456}, bkd.msg)
+            self.assertEqual('testytest', bkd.topic)

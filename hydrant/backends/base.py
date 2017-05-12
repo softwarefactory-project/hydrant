@@ -14,3 +14,11 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
+
+class BaseBackend:
+    def __init__(self, *args, **kwargs):
+        raise NotImplementedError
+
+    def add(self, msg, topic):
+        raise NotImplementedError

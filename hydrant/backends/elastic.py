@@ -14,3 +14,25 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
+
+import logging
+from elasticsearch import Elasticsearch
+
+from hydrant.backends import base
+
+
+LOGGER = logging.getLogger('hydrant')
+LOGGER.setLevel(logging.DEBUG)
+
+
+class ElasticsearchBackend(base.BaseBackend):
+    def __init__(self, host, port):
+        self.es = Elasticsearch([host, ],
+                                port=port)
+
+    def add(self, msg, topic):
+        self.es.index(index=topic,
+                      body=msg,
+                      doc_type='event')
+        LOGGER.debug("Added %r to index %s" % (msg, topic))
