@@ -1,0 +1,6 @@
+mqtt:
+  host: localhost
+  port: 1883
+elasticsearch:
+  host: localhost
+  port: 9200

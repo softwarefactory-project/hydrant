@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Hydrant, the SF Firehose consumer service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/hydrant -c /etc/hydrant/hydrant.yaml
+Restart=always
+User=hydrant
+Group=hydrant
+
+[Install]
+WantedBy=multi-user.target
