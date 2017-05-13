@@ -26,7 +26,7 @@ import time
 import paho.mqtt.client as mqtt
 import yaml
 
-from hydrant.backends import elastic as es
+from sfhydrant.backends import elastic as es
 
 
 LOGGER = logging.getLogger('hydrant')

@@ -17,7 +17,7 @@
 
 from unittest import TestCase
 
-from hydrant import hydrant
+from sfhydrant import hydrant
 
 from mock import patch
 

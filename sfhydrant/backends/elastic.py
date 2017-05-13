@@ -19,7 +19,7 @@
 import logging
 from elasticsearch import Elasticsearch
 
-from hydrant.backends import base
+from sfhydrant.backends import base
 
 
 LOGGER = logging.getLogger('hydrant')

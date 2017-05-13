@@ -1,7 +1,7 @@
 %global         sum SF Firehose consumer storing events on ElasticSearch
 
 Name:           hydrant
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        %{sum}
 
@@ -23,7 +23,7 @@ Buildrequires:	python-mock
 Buildrequires:  git
 Buildrequires:	PyYAML
 Buildrequires:	python-paho-mqtt
-Requires:       python-elasticsearch
+Buildrequires:  python-elasticsearch
 
 %description
 SF Firehose consumer storing events on ElasticSearch
@@ -68,6 +68,9 @@ exit 0
 %config(noreplace) %{_sysconfdir}/*
 
 %changelog
+* Sat May 13 2017 Matthieu Huin <mhuin@redhat.com> - 0.1.1-1
+- Rename module for PyPI
+
 * Fri May 12 2017 Matthieu Huin <mhuin@redhat.com> - 0.1.0-1
 - First release
 
