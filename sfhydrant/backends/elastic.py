@@ -32,7 +32,17 @@ class ElasticsearchBackend(base.BaseBackend):
                                 port=port)
 
     def add(self, msg, topic):
-        self.es.index(index=topic,
+        # clean up gerrit topics, keep simply "gerrit"
+        t = topic.split('/')[0]
+        if t != topic:
+            event_type = topic.split('/')[-1]
+        else:
+            if "EVENT" in msg:
+                event_type = msg["EVENT"]
+            else:
+                event_type = topic
+
+        self.es.index(index=t,
                       body=msg,
-                      doc_type='event')
+                      doc_type=event_type)
         LOGGER.debug("Added %r to index %s" % (msg, topic))

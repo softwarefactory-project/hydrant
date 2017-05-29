@@ -44,9 +44,7 @@ class Hydrant:
     def consume(self, msg, topic):
         json_msg = json.loads(msg)
         self.timestamp(json_msg)
-        # clean up gerrit topics, keep simply "gerrit"
-        t = topic.split('/')[0]
-        self.backend.add(json_msg, t)
+        self.backend.add(json_msg, topic)
 
 
 def on_connect(client, userdata, flags, rc):

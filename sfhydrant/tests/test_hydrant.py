@@ -54,4 +54,4 @@ class TestHydrant(TestCase):
             topic = 'testytest/bleh'
             handler.consume(message, topic)
             self.assertEqual({"a": "b", "TIMESTAMP": 123456}, bkd.msg)
-            self.assertEqual('testytest', bkd.topic)
+            self.assertEqual('testytest/bleh', bkd.topic)
