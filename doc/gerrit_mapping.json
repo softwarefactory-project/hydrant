@@ -1,0 +1,752 @@
+{
+    "gerrit": {
+        "mappings": {
+            "change-abandoned": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "abandoner": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "change": {
+                        "properties": {
+                            "branch": {
+                                "type": "string"
+                            },
+                            "commitMessage": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "patchSet": {
+                        "properties": {
+                            "author": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "createdOn": {
+                                "type": "long"
+                            },
+                            "isDraft": {
+                                "type": "boolean"
+                            },
+                            "kind": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "parents": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "revision": {
+                                "type": "string"
+                            },
+                            "sizeDeletions": {
+                                "type": "long"
+                            },
+                            "sizeInsertions": {
+                                "type": "long"
+                            },
+                            "uploader": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "reason": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "change-merged": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "change": {
+                        "properties": {
+                            "branch": {
+                                "type": "string"
+                            },
+                            "commitMessage": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "newRev": {
+                        "type": "string"
+                    },
+                    "patchSet": {
+                        "properties": {
+                            "author": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "createdOn": {
+                                "type": "long"
+                            },
+                            "isDraft": {
+                                "type": "boolean"
+                            },
+                            "kind": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "parents": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "revision": {
+                                "type": "string"
+                            },
+                            "sizeDeletions": {
+                                "type": "long"
+                            },
+                            "sizeInsertions": {
+                                "type": "long"
+                            },
+                            "uploader": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "submitter": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "comment-added": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "approvals": {
+                        "properties": {
+                            "description": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "author": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "change": {
+                        "properties": {
+                            "branch": {
+                                "type": "string"
+                            },
+                            "commitMessage": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "comment": {
+                        "type": "string"
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "patchSet": {
+                        "properties": {
+                            "author": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "createdOn": {
+                                "type": "long"
+                            },
+                            "isDraft": {
+                                "type": "boolean"
+                            },
+                            "kind": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "parents": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "revision": {
+                                "type": "string"
+                            },
+                            "sizeDeletions": {
+                                "type": "long"
+                            },
+                            "sizeInsertions": {
+                                "type": "long"
+                            },
+                            "uploader": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "patchset-created": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "change": {
+                        "properties": {
+                            "branch": {
+                                "type": "string"
+                            },
+                            "commitMessage": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "patchSet": {
+                        "properties": {
+                            "author": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "createdOn": {
+                                "type": "long"
+                            },
+                            "isDraft": {
+                                "type": "boolean"
+                            },
+                            "kind": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "parents": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "revision": {
+                                "type": "string"
+                            },
+                            "sizeDeletions": {
+                                "type": "long"
+                            },
+                            "sizeInsertions": {
+                                "type": "long"
+                            },
+                            "uploader": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "uploader": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "ref-replicated": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "project": {
+                        "type": "string"
+                    },
+                    "ref": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "targetNode": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ref-replication-done": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "nodesCount": {
+                        "type": "long"
+                    },
+                    "project": {
+                        "type": "string"
+                    },
+                    "ref": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ref-updated": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "refUpdate": {
+                        "properties": {
+                            "newRev": {
+                                "type": "string"
+                            },
+                            "oldRev": {
+                                "type": "string"
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "refName": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "submitter": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "reviewer-added": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "change": {
+                        "properties": {
+                            "branch": {
+                                "type": "string"
+                            },
+                            "commitMessage": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "eventCreatedOn": {
+                        "type": "long"
+                    },
+                    "patchSet": {
+                        "properties": {
+                            "author": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "createdOn": {
+                                "type": "long"
+                            },
+                            "isDraft": {
+                                "type": "boolean"
+                            },
+                            "kind": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "parents": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": "string"
+                            },
+                            "revision": {
+                                "type": "string"
+                            },
+                            "sizeDeletions": {
+                                "type": "long"
+                            },
+                            "sizeInsertions": {
+                                "type": "long"
+                            },
+                            "uploader": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "reviewer": {
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "username": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

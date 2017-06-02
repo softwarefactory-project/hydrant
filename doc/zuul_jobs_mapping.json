@@ -1,0 +1,58 @@
+{
+    "zuul_jobs": {
+        "mappings": {
+            "zuul_jobs": {
+                "properties": {
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "ZUUL_BRANCH": {
+                        "type": "string"
+                    },
+                    "ZUUL_CHANGE": {
+                        "type": "long"
+                    },
+                    "ZUUL_CHANGES": {
+                        "type": "string"
+                    },
+                    "ZUUL_CHANGE_IDS": {
+                        "type": "string"
+                    },
+                    "ZUUL_COMMIT": {
+                        "type": "string"
+                    },
+                    "ZUUL_PATCHSET": {
+                        "type": "long"
+                    },
+                    "ZUUL_PIPELINE": {
+                        "type": "string"
+                    },
+                    "ZUUL_PROJECT": {
+                        "type": "string"
+                    },
+                    "ZUUL_REF": {
+                        "type": "string"
+                    },
+                    "ZUUL_URL": {
+                        "type": "string"
+                    },
+                    "ZUUL_UUID": {
+                        "type": "string"
+                    },
+                    "build": {
+                        "type": "long"
+                    },
+                    "job": {
+                        "type": "string"
+                    },
+                    "node": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

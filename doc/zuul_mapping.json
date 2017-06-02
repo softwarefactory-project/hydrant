@@ -1,0 +1,91 @@
+{
+    "zuul": {
+        "mappings": {
+            "ADD_TO_PIPELINE": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "PIPELINE": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "ZUUL_CHANGE": {
+                        "type": "long"
+                    },
+                    "ZUUL_CHANGE_IDS": {
+                        "type": "string"
+                    },
+                    "ZUUL_PATCHSET": {
+                        "type": "long"
+                    },
+                    "ZUUL_PROJECT": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BUILD_RESULT": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "JOB_NAME": {
+                        "type": "string"
+                    },
+                    "RESULT": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "ZUUL_UUID": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LAUNCH_JOB": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "JOB_NAME": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "ZUUL_CHANGE": {
+                        "type": "long"
+                    },
+                    "ZUUL_CHANGE_IDS": {
+                        "type": "string"
+                    },
+                    "ZUUL_PATCHSET": {
+                        "type": "long"
+                    },
+                    "ZUUL_UUID": {
+                        "type": "string"
+                    }
+                }
+            },
+            "START_BUILD": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "JOB_NAME": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    },
+                    "ZUUL_UUID": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

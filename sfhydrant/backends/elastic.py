@@ -41,7 +41,24 @@ class ElasticsearchBackend(base.BaseBackend):
                 event_type = msg["EVENT"]
             else:
                 event_type = topic
-
+        # convert timestamps, ids... to the right type
+        if "TIMESTAMP" in msg:
+            msg["TIMESTAMP"] = int(msg["TIMESTAMP"])
+        if "NODE_ID" in msg:
+            msg["NODE_ID"] = int(msg["NODE_ID"])
+        if "ZUUL_CHANGE" in msg:
+            try:
+                msg["ZUUL_CHANGE"] = int(msg["ZUUL_CHANGE"])
+            except ValueError:
+                # Happens with periodic changes
+                msg["ZUUL_CHANGE"] = 0
+        if "ZUUL_PATCHSET" in msg:
+            try:
+                msg["ZUUL_PATCHSET"] = int(msg["ZUUL_PATCHSET"])
+            except ValueError:
+                msg["ZUUL_PATCHSET"] = 0
+        if "build" in msg:
+            msg["build"] = int(msg["build"])
         self.es.index(index=t,
                       body=msg,
                       doc_type=event_type)

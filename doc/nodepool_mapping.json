@@ -1,0 +1,86 @@
+{
+    "nodepool": {
+        "mappings": {
+            "CREATE": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "HOSTNAME": {
+                        "type": "string"
+                    },
+                    "IMAGE": {
+                        "type": "string"
+                    },
+                    "NODE_ID": {
+                        "type": "long"
+                    },
+                    "PROVIDER": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    }
+                }
+            },
+            "DELETED": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "NODE_ID": {
+                        "type": "long"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    }
+                }
+            },
+            "DELETED_ORCHESTRATOR": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "NODE_ID": {
+                        "type": "long"
+                    },
+                    "ORCHESTRATOR": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    }
+                }
+            },
+            "READY": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "NODE_ID": {
+                        "type": "long"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    }
+                }
+            },
+            "READY_ORCHESTRATOR": {
+                "properties": {
+                    "EVENT": {
+                        "type": "string"
+                    },
+                    "NODE_ID": {
+                        "type": "long"
+                    },
+                    "ORCHESTRATOR": {
+                        "type": "string"
+                    },
+                    "TIMESTAMP": {
+                        "type": "long"
+                    }
+                }
+            }
+        }
+    }
+}
