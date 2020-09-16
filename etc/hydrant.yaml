@@ -4,3 +4,7 @@ mqtt:
 elasticsearch:
   host: localhost
   port: 9200
+## UNCOMMENT PARAMS IF YOU WANT TO ENABLE AUTHENTICATION
+#  http_auth: user:password
+#  use_ssl: true
+#  verify_certs: false

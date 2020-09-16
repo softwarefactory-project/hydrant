@@ -90,8 +90,15 @@ def main():
         sys.exit('Elasticsearch configuration missing in %s' %
                  args.config_file)
 
+    http_auth = conf['elasticsearch'].get('http_auth', None)
+    use_ssl = conf['elasticsearch'].get('use_ssl', None)
+    verify_certs = conf['elasticsearch'].get('verify_certs', None)
+
     ESBackend = es.ElasticsearchBackend(conf['elasticsearch']['host'],
-                                        conf['elasticsearch']['port'])
+                                        conf['elasticsearch']['port'],
+                                        http_auth,
+                                        use_ssl,
+                                        verify_certs)
     handler = Hydrant(ESBackend)
 
     LOGGER.debug(

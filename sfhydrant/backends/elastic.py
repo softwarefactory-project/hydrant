@@ -27,9 +27,13 @@ LOGGER.setLevel(logging.DEBUG)
 
 
 class ElasticsearchBackend(base.BaseBackend):
-    def __init__(self, host, port):
+    def __init__(self, host, port, http_auth=None,
+                 use_ssl=None, verify_certs=None):
         self.es = Elasticsearch([host, ],
-                                port=port)
+                                port=port,
+                                http_auth=http_auth,
+                                use_ssl=use_ssl,
+                                verify_certs=verify_certs)
 
     def add(self, msg, topic):
         # clean up gerrit topics, keep simply "gerrit"
