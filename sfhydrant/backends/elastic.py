@@ -63,7 +63,20 @@ class ElasticsearchBackend(base.BaseBackend):
                 msg["ZUUL_PATCHSET"] = 0
         if "build" in msg:
             msg["build"] = int(msg["build"])
-        self.es.index(index=t,
-                      body=msg,
-                      doc_type=event_type)
-        LOGGER.debug("Added %r to index %s" % (msg, topic))
+
+        kwargs = {}
+        if int(self.es.info()['version']['number'].split('.')[0]) < 7:
+            kwargs = {'doc_type': event_type}
+
+        try:
+            msg_status = self.es.index(index=t,
+                                       body=msg,
+                                       **kwargs)
+        except Exception as e:
+            LOGGER.info("Error occured on sending message to "
+                        "Elasticsearch: %s" % e)
+
+        if msg_status['result'] == 'created':
+            LOGGER.debug("Added %r to index %s" % (msg, topic))
+        elif msg_status['_shards']['failed'] > 0:
+            LOGGER.debug("Failed to add %r to index %s" % (msg, topic))
